@@ -45,16 +45,17 @@ export const useDraw = (onDraw: ({ctx, currentPoint, prevPoint}: Draw)=>void) =>
       setMouseDown(false);
       prevPointRef.current = null;
     }
+    const canvas = canvasRef.current;
     //event listener
-    canvasRef.current?.addEventListener("mousemove", handler);
+    canvas?.addEventListener("mousemove", handler);
     window.addEventListener("mouseup", mouseUpHandler);
   
     //remove event listener
     return () => {
-      canvasRef.current?.removeEventListener("mousemove", handler);
+      canvas?.removeEventListener("mousemove", handler);
       window.removeEventListener("mouseup", mouseUpHandler);
     };
-  }, [onDraw]);
+  }, [onDraw,mouseDown]);
 
   return {canvasRef, onMouseDown, clear};
 };

@@ -1,11 +1,12 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { userAuth } from "./context/authContext";
+import { useAuth } from "./context/authContext";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 function Page() {
-  const { user, googleSignIn, logOut } = userAuth();
+  const { user, googleSignIn, logOut } = useAuth();
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   //const canvasRef = useRef(null);
@@ -99,10 +100,11 @@ function Page() {
                       onClick={handleSignIn}
                       className="p-2 cursor-pointer font-bold text-white border border-white rounded-md bg-white"
                     >
-                      <img
+                      <Image
                         src="https://storymirror.com/static/img/Google.f863aef4d15f1498abe6f2d498cdc987.png"
                         alt="google"
-                        className="w-9 h-9"
+                        width={36}  
+                        height={36}
                       />
                     </li>
                   </ul>

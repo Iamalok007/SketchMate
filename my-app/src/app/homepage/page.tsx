@@ -1,7 +1,7 @@
 "use client"
 import React from "react";
 import Link from "next/link";
-import { userAuth } from "../context/authContext";
+import { useAuth } from "../context/authContext";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
@@ -13,8 +13,8 @@ interface Project {
   url: string;
 }
 
-function page() {
-  const { user, logOut } = userAuth();
+function Page() {
+  const { user, logOut } = useAuth();
   const [loading, setLoading] = useState(true);
   
   const router = useRouter();
@@ -130,4 +130,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

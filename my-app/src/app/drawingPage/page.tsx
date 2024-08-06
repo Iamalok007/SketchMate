@@ -53,7 +53,7 @@ export default function Home() {
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, []);
+  }, [handleClickOutside]);
 
   useEffect(() => {
     const ctx = canvasRef.current?.getContext("2d");
@@ -90,7 +90,7 @@ export default function Home() {
       socket.off("draw-line");
       socket.off("clear");
     };
-  }, [canvasRef]);
+  }, [canvasRef,clear]);
 
   function createLine({ prevPoint, currentPoint, ctx }: Draw) {
     socket.emit("draw-line", { prevPoint, currentPoint, color });
@@ -199,7 +199,7 @@ export default function Home() {
         <div className=" flex flex-1 ">
           <div className="flex flex-col  border-black border px-1 h-[81vh] justify-center bg-gradient-to-br from-purple-300 via-purple-200   to-purple-100 rounded-lg">
             <div className="text-black items-center justify-center mb-4 text-center text-xl font-bold ">
-              Choose Color's
+              Choose Colors
             </div>
             <ChromePickerWrapper
               color={color}
