@@ -101,7 +101,7 @@ function Page() {
                       className="p-2 cursor-pointer font-bold text-white border border-white rounded-md bg-white"
                     >
                       <Image
-                        src="https://storymirror.com/static/img/Google.f863aef4d15f1498abe6f2d498cdc987.png"
+                        src="/google.png"
                         alt="google"
                         width={36}  
                         height={36}
